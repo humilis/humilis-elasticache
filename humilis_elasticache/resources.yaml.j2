@@ -1,0 +1,8 @@
+---
+resources:
+    CacheCluster:
+        Type: "AWS::ElastiCache::CacheCluster"
+        AZMode: {{az_mode}}
+        CacheNodeType: {{cache_node_type}}
+        Engine: {{engine}}
+        NumCacheNodes: {{num_cache_nodes}}

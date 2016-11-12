@@ -1,0 +1,34 @@
+---
+meta:
+    description:
+        Deploy an Elasticache cluster
+
+    parameters:
+        log_group:
+            description:
+                The name of the log group. If not provided, logging will be off.
+            value:
+
+        az_mode:
+            description:
+                Either single-az or cross-az
+            value:
+                single-az
+
+        cache_node_type:
+            description:
+                The node type
+            value:
+                cache.m3.medium
+
+        engine:
+            description:
+                The cache engine. Either memcached or redis.
+            value:
+                memcached
+
+        num_cache_nodes:
+            description:
+                The number of nodes in the cache
+            value:
+                1
