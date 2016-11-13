@@ -4,7 +4,9 @@ pytest
 pyyaml
 mock
 tox
+redis
 
 -e .
 git+https://github.com/humilis/humilis
-git+https://github.com/humilis/humilis-lambdautils
+git+https://github.com/humilis/humilis-vpc
+git+https://github.com/humilis/humilis-security

@@ -4,11 +4,6 @@ meta:
         Deploy an Elasticache cluster
 
     parameters:
-        log_group:
-            description:
-                The name of the log group. If not provided, logging will be off.
-            value:
-
         az_mode:
             description:
                 Either single-az or cross-az
@@ -32,3 +27,13 @@ meta:
                 The number of nodes in the cache
             value:
                 1
+
+        vpc_security_group_ids:
+            description:
+                A list of VPC security group IDs
+            value:
+
+        subnet_ids:
+            description:
+                A list of subnet IDs that conform the cluster subnet group
+            value:

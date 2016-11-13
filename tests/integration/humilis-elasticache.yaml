@@ -1,0 +1,42 @@
+---
+humilis-elasticache:
+    description:
+        A dummy environment used for testing the elasticache plugin.
+
+    layers:
+        - layer: vpc
+          layer_type: vpc
+
+        - layer: security
+          layer_type: security
+          vpc:
+              ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: vpc
+                      output_name: VpcId
+          security_groups:
+              - name: HumilisElasticache
+                description: Dummy group to test plugin humilis-elasticache
+                ingress_rules:
+                  - ip_protocol: tcp
+                    from_port: 6379
+                    to_port: 6379
+                    source_security_group_id: {"Ref": "HumilisElasticache"}
+                    cidr_ip: "0.0.0.0/0"
+
+        - layer: elasticache
+          layer_type: elasticache
+          engine: redis
+          subnet_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: vpc
+                      output_name: PublicSubnet1
+          vpc_security_group_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: security
+                      output_name: HumilisElasticache
