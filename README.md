@@ -2,7 +2,6 @@ Humilis plug-in to deploy an Elasticache cluster
 ===================================================
 
 [![PyPI](https://img.shields.io/pypi/v/humilis-elasticache.svg?style=flat)](https://pypi.python.org/pypi/humilis-elasticache)
-[![Build Status](https://travis-ci.org/humilis/humilis-elasticache.svg?branch=master)](https://travis-ci.org/humilis/humilis-elasticache)
 
 A [humilis][humilis] plug-in layer that deploys an [Elasticache cluster][elasticache].
 
