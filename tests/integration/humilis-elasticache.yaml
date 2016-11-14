@@ -23,7 +23,6 @@ humilis-elasticache:
                     from_port: 6379
                     to_port: 6379
                     source_security_group_id: {"Ref": "HumilisElasticache"}
-                    cidr_ip: "0.0.0.0/0"
 
         - layer: elasticache
           layer_type: elasticache
