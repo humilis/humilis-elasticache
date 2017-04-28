@@ -1,5 +1,4 @@
-Humilis plug-in to deploy an Elasticache cluster
-===================================================
+# Humilis plug-in to deploy an Elasticache cluster
 
 [![PyPI](https://img.shields.io/pypi/v/humilis-elasticache.svg?style=flat)](https://pypi.python.org/pypi/humilis-elasticache)
 
@@ -61,8 +60,6 @@ make delete
 ## More information
 
 See [humilis][humilis] documentation.
-
-[humilis]: https://github.com//humilis/blob/master/README.md
 
 
 ## Contact

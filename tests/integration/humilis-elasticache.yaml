@@ -6,9 +6,11 @@ humilis-elasticache:
     layers:
         - layer: vpc
           layer_type: vpc
+          description: Dummy layer to test the humilis-elasticache plugin
 
         - layer: security
           layer_type: security
+          description: Dummy layer to test the humilis-elasticache plugin
           vpc:
               ref:
                   parser: layer_output
@@ -26,6 +28,7 @@ humilis-elasticache:
 
         - layer: elasticache
           layer_type: elasticache
+          description: Dummy layer to test the humilis-elasticache plugin
           engine: redis
           subnet_ids:
               - ref:
