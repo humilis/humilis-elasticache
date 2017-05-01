@@ -13,8 +13,8 @@ resources:
     SubnetGroup:
         Type: "AWS::ElastiCache::SubnetGroup"
         Properties:
-            CacheSubnetGroupName: {{_layer.name}}
+            CacheSubnetGroupName: "{{_env.name}}-{{_layer.name}}-{{_env.stage}}"
             Description:
-                Elasticache ({{_env.name}}:{{_layer.name}}:{{_env.stage}})
+                "Elasticache ({{_env.name}}-{{_layer.name}}-{{_env.stage}})"
             SubnetIds:
                 {{subnet_ids}}
