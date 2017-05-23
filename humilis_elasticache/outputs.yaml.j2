@@ -11,10 +11,12 @@ outputs:
         Value:
             "Fn::GetAtt":
                 - CacheCluster
-                {% if engine=='memcached' %}
-                - ConfigurationEndpoint.Address
-                {% elif engine=='redis' %}
+                {% if engine=='memcached' or redis_cluster_mode %}
+                - ConfigurationEndPoint.Address
+                {% elif engine=='redis' and num_cache_nodes==1 %}
                 - RedisEndpoint.Address
+                {% elif engine=='redis' and num_cache_nodes > 1 %}
+                - PrimaryEndPoint.Address
                 {% endif %}
     CacheClusterPort:
         Description:
@@ -22,8 +24,10 @@ outputs:
         Value:
             "Fn::GetAtt":
                 - CacheCluster
-                {% if engine=='memcached' %}
-                - ConfigurationEndpoint.Port
-                {% elif engine=='redis' %}
+                {% if engine=='memcached' or redis_cluster_mode %}
+                - ConfigurationEndPoint.Port
+                {% elif engine=='redis' and num_cache_nodes==1 %}
                 - RedisEndpoint.Port
+                {% elif engine=='redis' and num_cache_nodes > 1 %}
+                - PrimaryEndPoint.Port
                 {% endif %}
