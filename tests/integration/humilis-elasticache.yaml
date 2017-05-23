@@ -26,10 +26,49 @@ humilis-elasticache:
                     to_port: 6379
                     source_security_group_id: {"Ref": "HumilisElasticache"}
 
-        - layer: elasticache
+        - layer: elasticache1
           layer_type: elasticache
           description: Dummy layer to test the humilis-elasticache plugin
           engine: redis
+          num_cache_nodes: 1
+          subnet_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: vpc
+                      output_name: PublicSubnet1
+          vpc_security_group_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: security
+                      output_name: HumilisElasticache
+
+        - layer: elasticache2
+          layer_type: elasticache
+          description: Dummy layer to test the humilis-elasticache plugin
+          engine: redis
+          num_cache_nodes: 3
+          subnet_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: vpc
+                      output_name: PublicSubnet1
+          vpc_security_group_ids:
+              - ref:
+                  parser: layer_output
+                  parameters:
+                      layer_name: security
+                      output_name: HumilisElasticache
+
+        - layer: elasticache3
+          layer_type: elasticache
+          description: Dummy layer to test the humilis-elasticache plugin
+          engine: redis
+          redis_cluster_mode: yes
+          num_cache_nodes: 2
+          rep_per_group: 2
           subnet_ids:
               - ref:
                   parser: layer_output

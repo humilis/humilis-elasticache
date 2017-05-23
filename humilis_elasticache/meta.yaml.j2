@@ -28,6 +28,18 @@ meta:
             value:
                 1
 
+        redis_cluster_mode:
+            description:
+                Activate or not cluster mode for redis.
+            value:
+                no
+
+        rep_per_group:
+            description:
+                Numb replicas per node group when redis cluster mode enabled.
+            value:
+                1
+
         vpc_security_group_ids:
             description:
                 A list of VPC security group IDs
