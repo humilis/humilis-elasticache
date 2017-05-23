@@ -68,7 +68,7 @@ humilis-elasticache:
           engine: redis
           redis_cluster_mode: yes
           num_cache_nodes: 2
-          rep_per_group: 2
+          replicas_per_group: 2
           subnet_ids:
               - ref:
                   parser: layer_output

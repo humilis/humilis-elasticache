@@ -10,7 +10,7 @@ resources:
             Engine: {{engine}}
             {% if redis_cluster_mode %}
             NumNodeGroups: {{num_cache_nodes}}
-            ReplicasPerNodeGroup: {{rep_per_group}}
+            ReplicasPerNodeGroup: {{replicas_per_group}}
             {% elif not redis_cluster_mode %}
             NumCacheClusters: {{num_cache_nodes}}
             {% endif %}
